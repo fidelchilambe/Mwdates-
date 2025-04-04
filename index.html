@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mwdates - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #070203;
+        }
+        
+        .home-page {
+            background: url('https://th.bing.com/th/id/OIP.l3UNYQsFs64Y8HE3S1paPgHaEo?w=271&h=180&c=7&r=0&o=5&pid=1.7') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        
+        header {
+            padding: 80px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+        
+        header h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        
+        header .subtitle {
+            font-size: 20px;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        header nav a.button {
+            background-color: #160409;
+            color: white;
+            padding: 12px 30px;
+            margin: 20px;
+            border-radius: 4px;
+        }
+        
+        header nav a.button:hover {
+            background-color: #110306;
+        }
+        
+        .intro {
+            background-color: #020202;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .intro h2 {
+            font-size: 32px;
+            color: #fcf5f7;
+        }
+        
+        .intro p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features {
+            padding: 40px 0;
+            background-color: #0a0000;
+            text-align: center;
+        }
+        
+        .features h2 {
+            font-size: 32px;
+            color: rgb(240, 233, 233);
+            margin-bottom: 20px;
+        }
+        
+        .feature-box {
+            background-color: black;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.8);
+        }
+        
+        .feature-box h3 {
+            font-size: 24px;
+            color: #f0eeee;
+            margin-bottom: 15px;
+        }
+        
+        .feature-box p {
+            font-size: 16px;
+            color: #777;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        
+        /* Menu Icon and Dropdown Styles */
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            width: 30px;
+        }
+        
+        .menu-icon div {
+            width: 100%;
+            height: 4px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+        
+        .menu-icon:hover div {
+            background-color: #ccc;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            min-width: 120px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .dropdown-menu a {
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #333;
+        }
+        
+        .dropdown-menu.active {
+            display: block;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    <header>
+        <div class="container">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <h1>Welcome to Mwdates</h1>
+            <p class="subtitle">Where true connections begin</p>
+            <nav>
+                <a href="https://www.apple.com/app-store/" class="store-link" target="_blank">
+                    <img src="data:image/jpeg;base64,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" alt="App Store" width="150" height="100">
+                    <h1>App Store</h1>
+                </a>
+                <a href="https://play.google.com/store" class="store-link" target="_blank">
+                    <img src="https://th.bing.com/th/id/OIP.FRRdybnwm0YhVciX2CBqHwHaHa?w=164&h=180&c=7&r=0&o=5&pid=1.7" alt="Google Play" width="100" height="100">
+                    <h1>Google Play</h1>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <h2>How Simple Match Works</h2>
+            <p>Find meaningful connections with like-minded individuals. Sign up, create a profile, and start connecting!</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Benefits of signing-up on our platform</h2>
+            <div class="feature-box">
+                <h3>Easy Profile Setup</h3>
+                <p>Create your profile in minutes and start meeting new people.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Real Connections</h3>
+                <p>We focus on quality matches, not just numbers.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Safe & Secure</h3>
+                <p>Your privacy is our priority. We take the necessary measures to keep your information safe.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Mwdates. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
