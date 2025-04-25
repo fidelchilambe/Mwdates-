@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mwdates - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #070203;
+        }
+        
+        .home-page {
+            background: url('https://wallpapercave.com/wp/wp5483201.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        
+        header {
+            padding: 80px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+        
+        header h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        
+        header .subtitle {
+            font-size: 20px;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        header nav a.button {
+            background-color: #160409;
+            color: white;
+            padding: 12px 30px;
+            margin: 20px;
+            border-radius: 4px;
+        }
+        
+        header nav a.button:hover {
+            background-color: #110306;
+        }
+        
+        .intro {
+            background-color: #020202;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .intro h2 {
+            font-size: 32px;
+            color: #fcf5f7;
+        }
+        
+        .intro p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features {
+            padding: 40px 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center;
+        }
+        
+        .features h2 {
+            font-size: 32px;
+            color: rgb(240, 233, 233);
+            margin-bottom: 20px;
+        }
+        
+        .feature-box {
+            background-color: black;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.8);
+        }
+        
+        .feature-box h3 {
+            font-size: 24px;
+            color: #f0eeee;
+            margin-bottom: 15px;
+        }
+        
+        .feature-box p {
+            font-size: 16px;
+            color: #777;
+        }
+        
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            position: inherit;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        
+        /* Menu Icon and Dropdown Styles */
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            width: 30px;
+        }
+        
+        .menu-icon div {
+            width: 100%;
+            height: 4px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+        
+        .menu-icon:hover div {
+            background-color: #ccc;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            min-width: 120px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .dropdown-menu a {
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: #333;
+        }
+        
+        .dropdown-menu.active {
+            display: block;
+        }
+
+        /* Cookie Popup Styles */
+        .cookie-popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+            z-index: 1000;
+        }
+
+        .cookie-popup.active {
+            display: block;
+        }
+
+        .cookie-popup h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .cookie-popup p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .cookie-popup a {
+            color: #00ffff;
+            text-decoration: underline;
+        }
+
+        .cookie-popup a:hover {
+            color: #99ffff;
+        }
+
+        .cookie-popup .buttons {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cookie-popup button {
+            background-color: #160409;
+            color: white;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .cookie-popup button:hover {
+            background-color: #110306;
+        }
+
+        .cookie-popup .customize-section {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .cookie-popup .customize-section.active {
+            display: block;
+        }
+
+        .cookie-popup .customize-section label {
+            display: block;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .cookie-popup .customize-section input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    <header>
+        <div class="container">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            
+            </div>
+            <h1>Welcome to Mwdates</h1>
+            <p class="subtitle">Where true connections begin</p>
+            <nav>
+                <a href="https://www.apple.com/app-store/" class="store-link" target="_blank">
+                    <img src="App store.png" alt="App Store" width="150" height="150">
+                </a>
+                <a href="https://play.google.com/store" class="store-link" target="_blank">
+                    <img src="Googleplay.png" alt="Google Play" width="100" height="100">
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <h2>How Simple Match Works</h2>
+            <p>Find meaningful connections with like-minded individuals. Sign up, create a profile, and start connecting!</p>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Benefits of signing-up on our platform</h2>
+            <div class="feature-box">
+                <h3>Easy Profile Setup</h3>
+                <p>Create your profile in minutes and start meeting new people.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Real Connections</h3>
+                <p>We focus on quality matches, not just numbers.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Safe & Secure</h3>
+                <p>Your privacy is our priority. We take the necessary measures to keep your information safe.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Mwdates. All rights reserved.</p>
+    </footer>
+
+    <!-- Cookie Popup -->
+    <div class="cookie-popup" id="cookiePopup">
+        <h3>We Value Your Privacy</h3>
+        <p>We use cookies to enhance your experience, analyze site usage, and provide personalized content. Essential cookies are required for the site to function. Learn more in our <a href="privacy.html">Privacy Policy</a>.</p>
+        <div class="buttons">
+            <button onclick="acceptAllCookies()">Accept All</button>
+            <button onclick="toggleCustomize()">Customize</button>
+        </div>
+        <div class="customize-section" id="customizeSection">
+            <label>
+                <input type="checkbox" id="essentialCookies" checked disabled> Essential Cookies (Required)
+            </label>
+            <label>
+                <input type="checkbox" id="analyticsCookies"> Analytics Cookies
+            </label>
+            <button onclick="saveCustomCookies()">Save Preferences</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Dropdown Menu
+        function toggleMenu() {
+            const dropdown = document.getElementById('dropdownMenu');
+            dropdown.classList.toggle('active');
+        }
+
+        // Cookie Popup Logic
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function showCookiePopup() {
+            const popup = document.getElementById('cookiePopup');
+            popup.classList.add('active');
+        }
+
+        function hideCookiePopup() {
+            const popup = document.getElementById('cookiePopup');
+            popup.classList.remove('active');
+        }
+
+        function acceptAllCookies() {
+            setCookie('cookieConsent', 'all', 365);
+            hideCookiePopup();
+            // Enable analytics (e.g., Google Analytics) here if applicable
+            console.log('All cookies accepted');
+        }
+
+        function toggleCustomize() {
+            const customizeSection = document.getElementById('customizeSection');
+            customizeSection.classList.toggle('active');
+        }
+
+        function saveCustomCookies() {
+            const analyticsCookies = document.getElementById('analyticsCookies').checked;
+            const consent = analyticsCookies ? 'analytics' : 'essential';
+            setCookie('cookieConsent', consent, 365);
+            hideCookiePopup();
+            // Enable analytics based on user choice
+            if (analyticsCookies) {
+                console.log('Analytics cookies enabled');
+            } else {
+                console.log('Only essential cookies enabled');
+            }
+        }
+
+        // Check cookie consent on page load
+        window.onload = function() {
+            const consent = getCookie('cookieConsent');
+            if (!consent) {
+                showCookiePopup();
+            } else {
+                console.log('Cookie consent already given:', consent);
+            }
+        };
+    </script>
+</body>
+</html>
